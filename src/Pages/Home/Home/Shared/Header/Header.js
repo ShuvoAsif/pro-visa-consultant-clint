@@ -8,7 +8,7 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/'>Blog</Link></li>
-        <li className='font-semibold btn btn-outline btn-light'><Link to='/'>Sign up</Link></li>
+        <li className='font-semibold btn btn-outline btn-light'><Link to='/login'>Log in</Link></li>
     </>
 
 
