@@ -9,7 +9,7 @@ const Banner = () => {
                 <img src={imga} alt="" />
             </div>
             <div className="absolute flex justify-end transform -translate-y-1/2 left-24 top-2/4">
-                <h1 className='text-5xl font-bold text-white w-62 '>I am a trusted visa consultant<br /> who can handle your case and <br />i will assist you with for your visa application.</h1>
+                <h1 className='text-4xl font-bold text-white leading-normal'>I am a trusted visa consultant<br /> who can handle your case and <br />i will assist you with for your visa application.</h1>
             </div>
         </div>
     );
