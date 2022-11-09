@@ -25,9 +25,9 @@ const Header = () => {
                         </ul>
                     </div>
                     <img className="w-10" src={passport} alt="" />
-                    <a href="/" className="font-bold normal-case text-3xl text-sky-100">Pro Visa Consultant</a>
+                    <a href="/" className="font-bold normal-case text-2xl text-sky-100">Pro Visa Consultant</a>
                 </div>
-                <div className="navbar-end">
+                <div className="navbar-end  hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         {menuItems}
                     </ul>
