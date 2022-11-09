@@ -2,13 +2,30 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Registration = () => {
 
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, providerLogin, setUser } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider()
+
+
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                setUser(user);
+                console.log(user);
+            })
+            .catch(error => console.error(error))
+    }
+
+
+
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
@@ -19,6 +36,7 @@ const Registration = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
             })
             .catch(err => console.error(err));
     }
@@ -49,8 +67,8 @@ const Registration = () => {
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn btn-primary" type="submit" value="Sign Up" />
-                        <Link className='btn btn-outline btn-light my-3 font-bold' to="/signup"><h1 className='px-1'>Sign Up with</h1><FaGoogle ></FaGoogle> </Link>
                     </div>
+                    <Link onClick={handleGoogleSignIn} className='btn btn-outline btn-light my-3 font-bold' to="/signup"><h1 className='px-1'>Sign Up with</h1><FaGoogle ></FaGoogle> </Link>
                 </form>
                 <p className='text-center'>Already have an account? <Link className='text-sky-600 font-bold' to="/login">Login</Link> </p>
             </div>
