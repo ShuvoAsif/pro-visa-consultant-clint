@@ -26,7 +26,7 @@ const Login = () => {
                         <input className="btn btn-primary" type="submit" value="Login" />
                     </div>
                 </form>
-                <p className='text-center'>New to Genius Car <Link className='text-sky-600 font-bold' to="/signup">Sign Up</Link> </p>
+                <p className='text-center'>Pro Visa Consultant <Link className='text-sky-600 font-bold' to="/signup">Sign Up</Link> </p>
             </div>
         </div>
     );
