@@ -31,7 +31,7 @@ const Review = () => {
 
 
 
-        fetch('http://localhost:5000/review', {
+        fetch(' https://visa-agency-server.vercel.app/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -15,11 +15,32 @@ const Registration = () => {
 
 
     const handleGoogleSignIn = () => {
+
+
+
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 setUser(user);
-                console.log(user);
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+
+                fetch(' https://visa-agency-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('genius-token', data.token);
+                    });
             })
             .catch(error => console.error(error))
     }
@@ -37,6 +58,26 @@ const Registration = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+
+
+                const currentUser = {
+                    email: user.email
+                }
+
+
+                fetch(' https://visa-agency-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('genius-token', data.token);
+                        Navigate(form, { replace: true });
+                    });
             })
             .catch(err => console.error(err));
     }
