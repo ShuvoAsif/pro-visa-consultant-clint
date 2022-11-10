@@ -1,7 +1,11 @@
 import Main from "../../Layout/Main";
+import Review from "../../Pages/Review/Review";
 import Home from "../../Pages/Home/Home/Home";
+import Service from "../../Pages/Home/Service/Service";
 import Login from "../../Pages/Login/Login";
 import Registration from "../../Pages/Registration/Registration";
+import Details from "../../Pages/Home/Service/Details";
+import MyReview from "../../Pages/Home/Service/MyReview";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -22,6 +26,25 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Registration></Registration>
+            },
+            {
+                path: '/service',
+                element: <Service></Service>
+            },
+            {
+                path: '/myreview',
+                element: <MyReview></MyReview>
+            },
+            {
+                path: '/details/:id',
+                element: <Details></Details>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+
+            },
+            {
+                path: '/review/:id',
+                element: <Review></Review>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             }
         ]
     }

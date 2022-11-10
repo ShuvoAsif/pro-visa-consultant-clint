@@ -1,11 +1,16 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ title }) => {
+
+
+
     return (
         <div>
             <footer className="footer p-10 bg-gray-500 text-white">
                 <div>
                     <span className="footer-title">Services</span>
+
+                    <a href="/" className="link link-hover">{title}</a>
                     <a href="/" className="link link-hover">Branding</a>
                     <a href="/" className="link link-hover">Design</a>
                     <a href="/" className="link link-hover">Marketing</a>

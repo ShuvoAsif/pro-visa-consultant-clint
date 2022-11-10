@@ -10,6 +10,8 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/'>Blog</Link></li>
+        <li className='font-semibold'><Link to='/service'>Services</Link></li>
+        <li className='font-semibold'><Link to='/myreview'>My Review</Link></li>
         {
             user ?
                 <li onClick={logOut} className='font-semibold btn btn-outline btn-light'><Link to='/login'>Log out</Link></li>
