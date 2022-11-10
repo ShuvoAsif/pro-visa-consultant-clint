@@ -17,15 +17,11 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider()
 
 
-
-
     const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 setUser(user);
-                Navigate(from, { replace: true });
-                console.log(user);
             })
             .catch(error => console.error(error))
     }
@@ -41,9 +37,28 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
-                Navigate(from, { replace: true });
-                form.reset();
+                setUser(user);
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('genius-token', data.token);
+                        Navigate(from, { replace: true });
+                    });
+
             })
             .then(error => console.log(error));
     }
