@@ -9,7 +9,7 @@ const MyReview = () => {
     const [review, setReview] = useState([])
 
     useEffect(() => {
-        fetch(` https://visa-agency-server.vercel.app/review?email=${user?.email}`,
+        fetch(` https://visa-agency-server.vercel.app/myreview?email=${user?.email}`,
             {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('genius-token')}`
