@@ -9,14 +9,12 @@ const Footer = ({ title }) => {
             <footer className="footer p-10 bg-gray-500 text-white">
                 <div>
                     <span className="footer-title">Services</span>
-
-                    <a href="/" className="link link-hover">{title}</a>
-                    <a href="/" className="link link-hover">Branding</a>
-                    <a href="/" className="link link-hover">Design</a>
-                    <a href="/" className="link link-hover">Marketing</a>
-                    <a href="/" className="link link-hover">Advertisement</a>
-                    <a href="/" className="link link-hover">Advertisement</a>
-                    <a href="/" className="link link-hover">Advertisement</a>
+                    <a href="/" className="link link-hover">Business Visa</a>
+                    <a href="/" className="link link-hover">Student Visa</a>
+                    <a href="/" className="link link-hover">Immigration Visa</a>
+                    <a href="/" className="link link-hover">Transit Visa</a>
+                    <a href="/" className="link link-hover">Tourist Visa</a>
+                    <a href="/" className="link link-hover">Diplomatic Visa</a>
                 </div>
                 <div>
                     <span className="footer-title">Legal</span>

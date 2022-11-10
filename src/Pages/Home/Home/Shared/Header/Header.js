@@ -14,6 +14,12 @@ const Header = () => {
         <li className='font-semibold'><Link to='/myreview'>My Review</Link></li>
         {
             user ?
+                <li className='font-semibold'><Link to='/addservice'>Add Service</Link></li>
+                :
+                <></>
+        }
+        {
+            user ?
                 <li onClick={logOut} className='font-semibold btn btn-outline btn-light'><Link to='/login'>Log out</Link></li>
                 :
                 <li className='font-semibold btn btn-outline btn-light'><Link to='/login'>Log in</Link></li>
