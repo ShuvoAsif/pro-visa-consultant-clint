@@ -14,30 +14,24 @@ const MyReviewRow = ({ review, handleDelete }) => {
 
 
     return (
-        <div>
-            <th>
-                <label>
-                    <button onClick={() => handleDelete(_id)} className='btn btn-ghost'>X</button>
-                </label>
-            </th>
-            <td>
-                <div className="flex items-center space-x-3">
-                    <div className="avatar">
-                        <div className="rounded w-24 h-24">
-                            {
-                                reviewService?.img &&
-                                <img src={reviewService.img} alt="Avatar Tailwind CSS Component" />}
+        <div className="card-actions justify-center my-5 ">
+            <div className="card w-96 bg-primary text-primary-content">
+                <div className="card-body">
+                    <h2 className="card-title">Service name: {serviceName}</h2>
+                    <h2 className="card-title">Price: {price}</h2>
+                    <p>Review: {message}</p>
+                    <div className="card-actions justify-end">
+
+                        <div className="avatar">
+                            <div className="w-8 rounded">
+                                {reviewService?.img &&
+                                    <img src={reviewService.img} alt="Tailwind-CSS-Avatar-component" />}
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <div className="font-bold">{serviceName}</div>
+                        <button onClick={() => handleDelete(_id)} className="btn">Delete</button>
                     </div>
                 </div>
-            </td>
-            <td>
-                {price}
-            </td>
-            <td>{message}</td>
+            </div>
         </div >
     );
 };

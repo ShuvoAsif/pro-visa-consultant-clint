@@ -38,29 +38,13 @@ const MyReview = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
-                    <thead>
-                        <tr>
-                            <th>
-                            </th>
-                            <th>Name</th>
-                            <th>Visa Name </th>
-                            <th>Price</th>
-                            <th>Review</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            review.map(review => <MyReviewRow
-                                key={review._id}
-                                review={review}
-                                handleDelete={handleDelete}
-                            ></MyReviewRow>)
-                        }
-                    </tbody>
-                </table>
-            </div>
+            {
+                review.map(review => <MyReviewRow
+                    key={review._id}
+                    review={review}
+                    handleDelete={handleDelete}
+                ></MyReviewRow>)
+            }
         </div>
     );
 };
