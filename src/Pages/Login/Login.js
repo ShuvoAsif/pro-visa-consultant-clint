@@ -22,6 +22,27 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 setUser(user);
+
+                const currentUser = {
+                    email: user.email
+                }
+
+                console.log(currentUser);
+
+                fetch(' https://visa-agency-server.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        localStorage.setItem('genius-token', data.token);
+                        Navigate(from, { replace: true });
+
+                    });
             })
             .catch(error => console.error(error))
     }
@@ -38,6 +59,8 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 setUser(user);
+                form.reset();
+
 
                 const currentUser = {
                     email: user.email

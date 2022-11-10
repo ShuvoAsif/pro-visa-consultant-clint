@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider'
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -10,6 +10,10 @@ const Registration = () => {
 
 
     const { createUser, providerLogin, setUser } = useContext(AuthContext);
+
+    const Navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     const googleProvider = new GoogleAuthProvider()
 
 
@@ -28,6 +32,7 @@ const Registration = () => {
                     email: user.email
                 }
 
+                console.log(currentUser);
 
                 fetch(' https://visa-agency-server.vercel.app/jwt', {
                     method: 'POST',
@@ -40,6 +45,8 @@ const Registration = () => {
                     .then(data => {
                         console.log(data);
                         localStorage.setItem('genius-token', data.token);
+                        Navigate(from, { replace: true });
+
                     });
             })
             .catch(error => console.error(error))
@@ -63,6 +70,7 @@ const Registration = () => {
                 const currentUser = {
                     email: user.email
                 }
+                console.log(currentUser);
 
 
                 fetch(' https://visa-agency-server.vercel.app/jwt', {
@@ -76,7 +84,7 @@ const Registration = () => {
                     .then(data => {
                         console.log(data);
                         localStorage.setItem('genius-token', data.token);
-                        Navigate(form, { replace: true });
+                        Navigate(from, { replace: true });
                     });
             })
             .catch(err => console.error(err));
