@@ -27,7 +27,7 @@ const ServiceDemo = () => {
                 }
             </div>
             <div className='flex'>
-                <div className='justify-center mx-auto '>
+                <div className='justify-center my-5 mx-auto '>
                     <Link to={`/service`}>
                         <button className="btn btn-primary">View All Service</button>
                     </Link>

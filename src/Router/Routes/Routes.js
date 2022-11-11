@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/review/:id',
-                element: <Review></Review>,
+                element: <PrivateRoute><Review></Review></PrivateRoute>,
                 loader: ({ params }) => fetch(` https://visa-agency-server.vercel.app/services/${params.id}`)
             }
         ]

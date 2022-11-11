@@ -5,8 +5,8 @@ import ServiceDemo from '../Service/ServiceDemo';
 const Home = () => {
     return (
         <div>
-            <Banner></Banner>
             <ServiceDemo></ServiceDemo>
+            <Banner></Banner>
         </div>
     );
 };

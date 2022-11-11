@@ -10,7 +10,15 @@ const Header = () => {
     const menuItems = <>
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
-        <li className='font-semibold'><Link to='/myreview'>My Review</Link></li>
+
+
+        {
+            user ?
+                <li className='font-semibold'><Link to='/myreview'>My Review</Link></li>
+                :
+                <></>
+        }
+
         {
             user ?
                 <li className='font-semibold'><Link to='/addservice'>Add Service</Link></li>
